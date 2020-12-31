@@ -53,11 +53,19 @@ resource "aws_apigatewayv2_route" "example" {
   - endpoint - endpoint for accessing cognito API
 - vpc - the Virtual Private Cloud definition for the infrastructure
   - Bastion-Host-public-ip - IP of the bastion host for accessing private VPC resources
-  - iuk_vpc" - the VPC resource instance
+  - iuk_vpc - the VPC resource instance
     - arn
     - cidr_block = "10.1.0.0/16"
     - id
-
+- sqs
+  - inqueue - Queue used to transfer messages from VVIT to IUK
+    - arn - AWS resource ARN (Amazon Resource Name)
+     - id - The queue access URL, it is in the form https://sqs.< region >.amazonaws.com/< account No >/< queue name >
+    - name - The queue name
+  - outqueue - Queue used to transfer messages from IUK to VVIT
+    - arn
+    - id
+     - name
 ## 3. Mainteiners
     Alexander Niolov  alexander.nikolov@vertigoventures.com
     Shener Halim      shener.halim@vertigoventures.com
